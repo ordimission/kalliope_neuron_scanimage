@@ -7,34 +7,33 @@ Neuron to scan image with SANE
 ## Installation
 
 ```bash
-kalliope install --git-url https://github.com/Ultchad/kalliope_neuron_translate
+kalliope install --git-url https://github.com/ordimission/kalliope_neuron_scanimage
 ```
 
 ## Options
 
 | parameter | required | default | choices                                | comments                                                                         |
 |-----------|----------|---------|----------------------------------------|----------------------------------------------------------------------------------|
-| depth     | no       |    8    |                                        |  |
+| depth     | no       |    16   |                                        |  |
 | mode      | no       |  "color"|                                        |     |
-| imageUri  | yes      |         |                                        |                                                              |
-| imageFormat  | no      |   "png"      |       
+| image     | yes      |         |                                        |                                                              |
+| format    | no       |   "png" |       
 
 ## Return Values
 
 | Name     | Description           | Type   | sample          |
 |----------|-----------------------|--------|-----------------|
-| result   | Result of translation | string | "Buenas noches" |
-|      |
+|     |
 
 ## Synapses example with override voice parameter
 
 ```yml
 - name: "scanimage-fr"
   signals:
-    - order: "acquiers l image"
+    - order: "acquiers l'image"
   neurons:
     - scanimage:
-        image_uri: "/tmp/image.png"
+        image: "/tmp/image.png"
        
         
 ```

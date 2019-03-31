@@ -16,9 +16,9 @@ class Scanimage(NeuronModule):
         self.message = None
 
         # get parameters form the neuron
-        self.image_path = kwargs.get('image_path', None)
+        self.image_path = kwargs.get('image', None)
         self.mode = kwargs.get('mode', 'color')
-        self.depth = kwargs.get('depth', 8)
+        self.depth = kwargs.get('depth', 16)
 
         if self._is_parameters_ok():
             result = "";
@@ -68,7 +68,7 @@ class Scanimage(NeuronModule):
             #
             dev.start()
             im = dev.snap()
-            im.save( self.image_path )
+            im.save(self.image)
 
 
             #
@@ -90,8 +90,8 @@ class Scanimage(NeuronModule):
         .. raises:: InvalidParameterException
         """
 
-        if self.image_path is None:
-            raise InvalidParameterException("Scanimage needs an image_uri")
+        if self.image is None:
+            raise InvalidParameterException("Scanimage needs an image path")
 
         return True
 
